@@ -31,7 +31,7 @@ def check_battle_log():
             print(f"Ultima partita rilevata: {diff:.1f} minuti fa")
             
             # Se la partita è avvenuta negli ultimi 15 minuti, invia notifica
-            if diff < 15:
+            if diff < 7:
                 mode = last_battle['event'].get('mode', 'partita')
                 msg = f"🚨 GIOCATORE ATTIVO! Ha appena giocato a {mode}."
                 requests.post(f"https://ntfy.sh/{TOPIC}", data=msg.encode('utf-8'))
