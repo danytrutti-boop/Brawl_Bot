@@ -1,0 +1,25 @@
+name: Brawl Stars Tracker
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Esegue ogni 10 minuti
+  workflow_dispatch: # Permette di avviarlo a mano per testare
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Installa librerie
+        run: pip install requests
+      - name: Esegui Bot
+        env:
+          PLAYER_TAG: ${{ secrets.PLAYER_TAG }}
+          BRAWL_TOKEN: ${{ secrets.BRAWL_TOKEN }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python bot.py
