@@ -8,7 +8,7 @@ TOKEN = os.getenv('BRAWL_TOKEN')
 TOPIC = os.getenv('NTFY_TOPIC')
 
 def check_battle_log():
-    url = f"https://api.brawlstars.com/v1/players/%23{TAG}/battlelog"
+    url = f"https://bsproxy.royaleapi.dev/v1/players/%23{TAG}/battlelog"
     headers = {"Authorization": f"Bearer {TOKEN}"}
     
     try:
