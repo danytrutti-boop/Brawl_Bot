@@ -2,7 +2,7 @@ name: Brawl Stars Tracker
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Esegue ogni 10 minuti
+    - cron: '*/10 * * * *' # Esegue ogni 10 minuti
   workflow_dispatch: # Permette di avviarlo a mano per testare
 
 jobs:
